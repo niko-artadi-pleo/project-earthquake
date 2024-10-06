@@ -1,0 +1,20 @@
+.env
+__pycache__/
+*.py[cod]
+*$py.class
+pycache
+venv
+bigquery-project-earthquake-secrets.json
+.DS_Store
+
+
+
+
+
+# drop table raw_data.pleo_dk;
+# drop table raw_data.pleo_de;
+# drop table raw_data.pleo_ca;
+# drop table raw_data.pleo_es;
+# drop table raw_data.pleo_pt;
+# drop table raw_data.pleo_uk;
+# drop table curated_data.earthquakes;
