@@ -18,7 +18,7 @@ locations = {
     "pleo_es": "Calle Gran Via, 39 6th floor 28013 Madrid",
     "pleo_pt": "DP11, Rua Duque de Palmela, 11 1250-096 Lisbon",
     "pleo_ca": "4 Place Ville Marie, 2e+3e étage",
-    "pleo_se": "Kungsgatan 49, 111 22",
+    "pleo_se": "Kungsgatan 49, 111 22 Stockholm, Sweden",
 }
 
 # Define constraints
