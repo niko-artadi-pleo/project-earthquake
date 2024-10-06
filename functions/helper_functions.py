@@ -53,9 +53,11 @@ def get_coordinates(locations):
     dic_addresses = {}
 
     for location_name, address in locations.items():
-        locations = nom.geocode(address)
+        coordinates = nom.geocode(address)
         if locations:
-            dic_addresses[location_name] = [locations[0], locations[1]]
+            dic_addresses[location_name] = [
+                coordinates.latitude, 
+                coordinates.longitude]
 
     return dic_addresses
 
