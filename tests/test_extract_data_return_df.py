@@ -3,14 +3,29 @@ from unittest.mock import patch, MagicMock
 import pandas as pd
 from io import StringIO
 import requests
-import time
 from functions.helper_functions import extract_data_return_df
 
 
-class TestHelperFunctions(unittest.TestCase):
+class ExtractDataReturnDf(unittest.TestCase):
+    """
+    ExtractDataReturnDf contains unit tests for the extract_data_return_df function.
 
-    @patch("helper_functions.requests.get")
-    @patch("helper_functions.time.sleep", return_value=None)
+    Methods:
+        test_extract_data_return_df_success(mock_sleep, mock_get):
+            Tests that extract_data_return_df successfully returns a DataFrame when the HTTP request is successful.
+
+        test_extract_data_return_df_http_error(mock_sleep, mock_get):
+            Tests that extract_data_return_df raises an HTTPError when the HTTP request fails with an HTTP error.
+
+        test_extract_data_return_df_timeout(mock_sleep, mock_get):
+            Tests that extract_data_return_df raises a Timeout error when the HTTP request times out.
+
+        test_extract_data_return_df_request_exception(mock_sleep, mock_get):
+            Tests that extract_data_return_df raises a RequestException when the HTTP request encounters a general request exception.
+    """
+
+    @patch("functions.helper_functions.requests.get")
+    @patch("functions.helper_functions.time.sleep", return_value=None)
     def test_extract_data_return_df_success(self, mock_sleep, mock_get):
         # Mock the response from requests.get
         mock_response = MagicMock()
@@ -33,8 +48,8 @@ class TestHelperFunctions(unittest.TestCase):
         mock_response.raise_for_status.assert_called_once()
         mock_sleep.assert_called_once_with(1)
 
-    @patch("helper_functions.requests.get")
-    @patch("helper_functions.time.sleep", return_value=None)
+    @patch("functions.helper_functions.requests.get")
+    @patch("functions.helper_functions.time.sleep", return_value=None)
     def test_extract_data_return_df_http_error(self, mock_sleep, mock_get):
         # Mock the response from requests.get to raise an HTTPError
         mock_response = MagicMock()
@@ -52,8 +67,8 @@ class TestHelperFunctions(unittest.TestCase):
         mock_response.raise_for_status.assert_called_once()
         mock_sleep.assert_not_called()
 
-    @patch("helper_functions.requests.get")
-    @patch("helper_functions.time.sleep", return_value=None)
+    @patch("functions.helper_functions.requests.get")
+    @patch("functions.helper_functions.time.sleep", return_value=None)
     def test_extract_data_return_df_timeout(self, mock_sleep, mock_get):
         # Mock the response from requests.get to raise a Timeout
         mock_get.side_effect = requests.Timeout("Timeout Error")
@@ -68,8 +83,8 @@ class TestHelperFunctions(unittest.TestCase):
         mock_get.assert_called_once_with(url)
         mock_sleep.assert_not_called()
 
-    @patch("helper_functions.requests.get")
-    @patch("helper_functions.time.sleep", return_value=None)
+    @patch("functions.helper_functions.requests.get")
+    @patch("functions.helper_functions.time.sleep", return_value=None)
     def test_extract_data_return_df_request_exception(self, mock_sleep, mock_get):
         # Mock the response from requests.get to raise a RequestException
         mock_get.side_effect = requests.RequestException("Request Exception")
