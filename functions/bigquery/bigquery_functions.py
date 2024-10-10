@@ -1,5 +1,5 @@
 import pandas_gbq
-from functions.bigquery_client import bigquery_client
+from functions.bigquery.bigquery_client import bigquery_client
 from functions.logger import get_logger
 import pandas as pd
 

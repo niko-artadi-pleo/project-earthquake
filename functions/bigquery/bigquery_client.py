@@ -19,8 +19,8 @@ def bigquery_client():
         google.auth.exceptions.DefaultCredentialsError: If the credentials are not found or invalid.
     """
     # Path to the service account key file
-    key_path = "/Users/nikolas.artadi/Documents/personal/project-earthquake/bigquery-project-earthquake-secrets.json"
-    logger.info("Create  BigQuery client.")
+    key_path = "~/project-earthquake/bigquery-project-earthquake-secrets.json"
+    logger.info("Create BigQuery client.")
     # Set the environment variable for authentication
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
 

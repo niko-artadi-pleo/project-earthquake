@@ -5,7 +5,7 @@ from functions.helper_functions import (
     extract_data_return_df,
     combine_transform_data,
 )
-from functions.bigquery_functions import push_data_to_bigquery
+from functions.bigquery.bigquery_functions import push_data_to_bigquery
 from functions.logger import get_logger
 
 logger = get_logger("main-script")
